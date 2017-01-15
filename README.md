@@ -4,6 +4,105 @@ Miwok App
 This app displays lists of vocabulary words for the user to learn the Miwok language.
 Used in a Udacity course in the Beginning Android Nanodegree.
 
+1. Word.java
+```
+/**
+ * Created by jaemin on 17. 1. 15.
+ */
+
+public class Word {
+
+    private String defaultTranslation;
+    private String mMiworkTranslation;
+
+    public Word(String defaultTranslation, String mMiworkTranslation){
+        this.defaultTranslation = defaultTranslation;
+        this.mMiworkTranslation = mMiworkTranslation;
+    }
+
+    /**
+     * Getter and Setter
+     * @return
+     */
+    public String getmMiworkTranslation() {
+        return mMiworkTranslation;
+    }
+
+    public void setmMiworkTranslation(String mMiworkTranslation) {
+        this.mMiworkTranslation = mMiworkTranslation;
+    }
+
+    public String getDefaultTranslation() {
+        return defaultTranslation;
+    }
+
+    public void setDefaultTranslation(String defaultTranslation) {
+        this.defaultTranslation = defaultTranslation;
+    }
+
+}
+```
+
+```
+/**
+ * Created by jaemin on 17. 1. 15.
+ */
+
+public class WordAdapter extends ArrayAdapter<Word>{
+
+
+    public WordAdapter(Activity context, ArrayList<Word> objects) {
+        super(context, 0, objects);
+    }
+
+    @NonNull
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // Check if the existing view is being reused, otherwise inflate the view
+        View listItemView = convertView;
+        if(listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.list_view, parent, false);
+        }
+
+        Word currentAndroidFlavor = getItem(position);
+
+        TextView nameTextView = (TextView) listItemView.findViewById(R.id.defaultWord);
+        nameTextView.setText(currentAndroidFlavor.getDefaultTranslation());
+
+        TextView numberTextView = (TextView) listItemView.findViewById(R.id.translated);
+        numberTextView.setText(currentAndroidFlavor.getmMiworkTranslation());
+
+
+        return listItemView;
+    }
+
+}
+
+```
+3.list_view.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:padding="16dp">
+    <TextView
+        android:id="@+id/defaultWord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="lutti"/>
+
+    <TextView
+        android:id="@+id/translated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="one"/>
+</LinearLayout>
+```
 Pre-requisites
 --------------
 
