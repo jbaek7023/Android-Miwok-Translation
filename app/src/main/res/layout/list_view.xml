@@ -1,20 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
-    android:padding="16dp">
-    <TextView
-        android:id="@+id/defaultWord"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="lutti"/>
+    android:minHeight="88dp">
 
-    <TextView
-        android:id="@+id/translated"
+    <ImageView
+        android:id="@+id/image_icon"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:src="@mipmap/ic_launcher"
+        android:background="#FFF7DA" />
+
+    <LinearLayout
+        android:id="@+id/text_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="one"/>
+        android:layout_height="88dp"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:background="#FE8E09"
+        >
+
+        <TextView
+            android:id="@+id/defaultWord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            tools:text="lutti"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/translated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="top"
+            tools:text="one"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"/>
+    </LinearLayout>
 </LinearLayout>

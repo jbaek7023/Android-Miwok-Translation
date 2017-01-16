@@ -8,10 +8,29 @@ public class Word {
 
     private String defaultTranslation;
     private String mMiworkTranslation;
+    private Integer imageResource;
+
+    public Word(String defaultTranslation, String mMiworkTranslation, Integer imageResource) {
+        this.defaultTranslation = defaultTranslation;
+        this.mMiworkTranslation = mMiworkTranslation;
+        this.imageResource = imageResource;
+
+    }
+
+    public Integer getImageResource() {
+        return imageResource;
+    }
+
+    public void setImageResource(Integer imageResource) {
+        this.imageResource = imageResource;
+    }
+
+
 
     public Word(String defaultTranslation, String mMiworkTranslation){
         this.defaultTranslation = defaultTranslation;
         this.mMiworkTranslation = mMiworkTranslation;
+        imageResource=-1;
     }
 
     /**
@@ -34,4 +53,8 @@ public class Word {
         this.defaultTranslation = defaultTranslation;
     }
 
+    public boolean hasImage(){
+        int NO_IMAGE_PROVIDED = -1;
+        return imageResource != NO_IMAGE_PROVIDED;
+    }
 }
